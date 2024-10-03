@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5 pt-5" style="user-select: none;">
+    <div class="w-50 mx-auto bg-white p-3">
+        <h2 class="mb-4">E'lonni tahrirlash</h2>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div data-mdb-input-init="" class="form-outline mb-3">
+                <input type="text" name="title" maxlength="256" class="form-control" required="" id="id_title"
+                    value="{{ announcement.title }}">
+                <label class="form-label" for="id_title">Title</label>
+            </div>
+
+            <div data-mdb-input-init="" class="form-outline mb-3">
+                <textarea name="description" cols="40" rows="10" class="form-control" required=""
+                    id="id_description">{{ announcement.description }}</textarea>
+                <label class="form-label" for="id_description">Description</label>
+            </div>
+
+            <select data-mdb-select-init class="form-control mb-3" style="border-color: #bdbdbd;" id="id_category"
+                required name="category">
+                <option value="" selected>Category</option>
+
+                {% for ct in categories %}
+                <option value="{{ ct.id }}" {% if announcement.category.id == ct.id %} selected {% endif %}>
+                    {{ ct.name }}
+                </option>
+                {% endfor %}
+            </select>
+
+            <div class="mb-3">
+                <label for="id_images">Eski rasmlar:</label>
+                <div>
+                    {% for img in images %}
+                    <img src="{{ img.image.url }}" alt="Image" class="img-thumbnail"
+                        style="width: 100px; height: 100px; object-fit: cover;">
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div data-mdb-input-init class="d-flex justify-content-between mb-3">
+                <label for="id_images">Yangi rasmlar:</label>
+                <input type="file" id="id_images" accept="image/*" multiple name="images">
+            </div>
+
+            <div data-mdb-input-init="" class="form-outline mb-3">
+                <input type="number" name="price" min="0" class="form-control" required="" id="id_price"
+                    value="{{ announcement.price }}">
+                <label class="form-label" for="id_price">Price</label>
+            </div>
+
+            <button data-mdb-ripple-init="" type="submit" class="btn btn-primary btn-block">Yangilash</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

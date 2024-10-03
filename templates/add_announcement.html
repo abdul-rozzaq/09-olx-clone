@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+<div class="container mt-5 pt-5" style="user-select: none;">
+    <div class="w-50 mx-auto bg-white p-3">
+        <h2 class="mb-4">E'lon qo'shish</h2>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div data-mdb-input-init="" class="form-outline mb-3" data-mdb-input-initialized="true">
+                <input type="text" name="title" maxlength="256" class="form-control" required="" id="id_title">
+
+                <label class="form-label" for="id_title" style="margin-left: 0px;">Title</label>
+
+            </div>
+
+            <div data-mdb-input-init="" class="form-outline mb-3" data-mdb-input-initialized="true">
+                <textarea name="description" cols="40" rows="10" class="form-control" required=""
+                    id="id_description"></textarea>
+
+                <label class="form-label" for="id_description" style="margin-left: 0px;">Description</label>
+
+            </div>
+
+
+            <select data-mdb-select-init class="form-control mb-3" style="border-color: #bdbdbd;" id="id_category"
+                required name="category">
+                <option value="" selected>Category</option>
+
+                {% for ct in categories %}
+                <option value="{{ ct.id }}">{{ ct.name }}</option>
+                {% endfor %}
+
+            </select>
+
+            <div data-mdb-input-init class="d-flex justify-content-between mb-3">
+                <label for="id_images">Images</label>
+                <input type="file" id="id_images" accept="image/*" classstyle="width: min-content;" multiple name="images">
+            </div>
+
+            <div data-mdb-input-init="" class="form-outline mb-3">
+                <input type="number" name="price" min="0" class="form-control" required="" id="id_price">
+
+                <label class="form-label" for="id_price">Price</label>
+            </div>
+
+            <button data-mdb-ripple-init="" type="submit" class="btn btn-primary btn-block">Qo'shish</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

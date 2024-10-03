@@ -1,0 +1,142 @@
+[
+    {
+        "model": "project.category",
+        "pk": 1,
+        "fields": {
+            "name": "Ko'chmas mulk"
+        }
+    },
+    {
+        "model": "project.category",
+        "pk": 2,
+        "fields": {
+            "name": "Avtomobillar"
+        }
+    },
+    {
+        "model": "project.category",
+        "pk": 3,
+        "fields": {
+            "name": "Elektronika"
+        }
+    },
+    {
+        "model": "project.category",
+        "pk": 4,
+        "fields": {
+            "name": "Ish o'rinlari"
+        }
+    },
+    {
+        "model": "project.category",
+        "pk": 5,
+        "fields": {
+            "name": "Xizmatlar"
+        }
+    },
+    {
+        "model": "project.category",
+        "pk": 6,
+        "fields": {
+            "name": "Uy hayvonlari"
+        }
+    },
+    {
+        "model": "project.category",
+        "pk": 7,
+        "fields": {
+            "name": "Sport va hordiq"
+        }
+    },
+    {
+        "model": "project.category",
+        "pk": 8,
+        "fields": {
+            "name": "Kiyim-kechak"
+        }
+    },
+    {
+        "model": "project.category",
+        "pk": 9,
+        "fields": {
+            "name": "Uy jihozlari"
+        }
+    },
+    {
+        "model": "project.category",
+        "pk": 10,
+        "fields": {
+            "name": "Bolalar uchun"
+        }
+    },
+    {
+        "model": "project.category",
+        "pk": 11,
+        "fields": {
+            "name": "Texnika"
+        }
+    },
+    {
+        "model": "project.category",
+        "pk": 12,
+        "fields": {
+            "name": "Avtomobil qismlari"
+        }
+    },
+    {
+        "model": "project.category",
+        "pk": 13,
+        "fields": {
+            "name": "Ta'lim va kurslar"
+        }
+    },
+    {
+        "model": "project.category",
+        "pk": 14,
+        "fields": {
+            "name": "Go'zallik va salomatlik"
+        }
+    },
+    {
+        "model": "project.category",
+        "pk": 15,
+        "fields": {
+            "name": "Sovg'alar va aksessuarlar"
+        }
+    },
+    {
+        "model": "project.category",
+        "pk": 16,
+        "fields": {
+            "name": "Oziq-ovqat va ichimliklar"
+        }
+    },
+    {
+        "model": "project.category",
+        "pk": 17,
+        "fields": {
+            "name": "Sayohat va turizm"
+        }
+    },
+    {
+        "model": "project.category",
+        "pk": 18,
+        "fields": {
+            "name": "Ko'ngilochar tadbirlar"
+        }
+    },
+    {
+        "model": "project.category",
+        "pk": 19,
+        "fields": {
+            "name": "Maishiy texnika"
+        }
+    },
+    {
+        "model": "project.category",
+        "pk": 20,
+        "fields": {
+            "name": "Musika asboblari"
+        }
+    }
+]

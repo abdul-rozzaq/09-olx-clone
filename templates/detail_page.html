@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="container mt-4">
+    <div class="row gx-3">
+        <div class="col-7">
+            <div class="p-3 bg-white">
+                <div id="carousel-{{ announcement.pk }}" class="carousel slide" data-mdb-ride="carousel"
+                    data-mdb-carousel-init>
+
+                    <div class="carousel-inner">
+                        {% for img in announcement.images.all %}
+
+                        <div class="carousel-item {% if forloop.first %} active {% endif %}">
+                            <img src="{{ img.image.url }}" class="d-block w-100" height="700"
+                                style="object-fit: contain;" />
+                        </div>
+
+                        {% endfor %}
+                    </div>
+                    <button class="carousel-control-prev text-black" data-mdb-target="#carousel-{{ announcement.pk }}"
+                        type="button" data-mdb-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next text-black" data-mdb-target="#carousel-{{ announcement.pk }}"
+                        type="button" data-mdb-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-5">
+            <div class="p-3 bg-white">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2 class="fw-bolder">{{ announcement.title }}</h2>
+                    <i class="far fa-heart" style="font-size: 30px; color: red; user-select: none;" id="heart-icon"></i>
+                </div>
+
+                <h3>{{ announcement.price }} so'm</h3>
+            </div>
+            <div class="bg-white mt-3 p-3">
+                <h4>Mahsulot haqida</h4>
+                <div class="fw-bold">{{ announcement.category }}</div>
+                <div style="white-space: pre-wrap; word-wrap: break-word;">{{ announcement.description | safe }}</div>
+            </div>
+            <div class="bg-white mt-3 p-3">
+                <h4>Sotuvchi</h4>
+                <div class="fw-bolder">
+                    @{{announcement.owner.username}}
+                </div>
+            </div>
+            <div class="bg-white mt-3 p-3 d-flex gap-3">
+                <a type="button" class="btn btn-primary flex-grow-1" onclick="history.back()">Ortga</a>
+
+                {% if request.user == announcement.owner %}
+
+                <a href="{% url 'edit_announcement' announcement.pk %}" type="button"
+                    class="btn btn-warning flex-grow-1">Tahrirlash</a>
+
+                <a class="flex-grow-1 d-block btn btn-danger" href="{% url 'delete_announcement' announcement.pk %}"
+                    onclick="return confirm('Haqiqatdan ham ushbu e\'lonni o\'chirmoqchimisiz ?')">
+                    O'chirish
+                </a>
+
+                {% elif request.user.is_authenticated %}
+
+                <button type="button" class="btn btn-secondary flex-grow-1">Sotib olish</button>
+
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+
+        const item = document.querySelector("#heart-icon")
+        let checked = false;
+
+        item.addEventListener('click', () => {
+            checked = !checked;
+
+
+            item.classList = checked ? ['fas fa-heart'] : ['far fa-heart']
+
+        });
+
+
+    </script>
+
+</div>
+
+{% endblock %}

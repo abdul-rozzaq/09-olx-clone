@@ -40,70 +40,39 @@
 
 
             </div>
-
-            <ul class="navbar-nav ml-auto">
+            <div class="ml-auto d-flex gap-2">
                 {% if user.is_authenticated %}
 
-                <!-- <li class="nav-item">
-                    <div class="dropdown nav-link">
-                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
-                            data-mdb-dropdown-init data-mdb-ripple-init aria-expanded="false">
-                            Saralash
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            {% for category in categories %}
-                            <li><a class="dropdown-item" href="?c={{ category.id }}">{{ category.name }}</a></li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'add_page' %}">
-                        <button class="btn btn-success">Yangi e'lon joylash</button>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'logout' %}">
-                        <button class="btn btn-danger">Logout</button>
-                    </a>
-                </li> -->
-
-                <li class="nav-item dropdown">
-                    <a data-mdb-dropdown-init class="nav-link dropdown-toggle d-flex align-items-center" href="#"
-                        id="navbarDropdownMenuLink" role="button" aria-expanded="false">
-                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img (31).webp" class="rounded-circle"
-                            height="40" alt="Portrait of a Woman" loading="lazy" />
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li>
-                            <a class="dropdown-item" href="#">My profile</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#">Settings</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item bg-danger text-light" href="{% url 'logout' %}">Logout</a>
-                        </li>
+                <div class="dropdown nav-link">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-mdb-dropdown-init data-mdb-ripple-init aria-expanded="false">
+                        Saralash
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        {% for category in categories %}
+                        <li><a class="dropdown-item" href="?c={{ category.id }}">{{ category.name }}</a></li>
+                        {% endfor %}
                     </ul>
-                </li>
+                </div>
+                <a class="nav-link" href="{% url 'add_page' %}">
+                    <button class="btn btn-success">Yangi e'lon joylash</button>
+                </a>
+                <a class="nav-link" href="{% url 'logout' %}">
+                    <button class="btn btn-danger">Logout</button>
+                </a>
 
                 {% else %}
 
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'login' %}">
-                        <button type="button" class="btn btn-outline-primary" data-mdb-ripple-init
-                            data-mdb-ripple-color="dark">Login</button>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'register' %}">
-                        <button type="button" class="btn btn-primary" data-mdb-ripple-init
-                            data-mdb-ripple-color="dark">Register</button>
-                    </a>
-                </li>
+                <a class="nav-link" href="{% url 'login' %}">
+                    <button type="button" class="btn btn-outline-primary" data-mdb-ripple-init
+                        data-mdb-ripple-color="dark">Login</button>
+                </a>
+                <a class="nav-link" href="{% url 'register' %}">
+                    <button type="button" class="btn btn-primary" data-mdb-ripple-init
+                        data-mdb-ripple-color="dark">Register</button>
+                </a>
                 {% endif %}
-            </ul>
+            </div>
         </div>
     </nav>
 

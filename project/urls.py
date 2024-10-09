@@ -16,9 +16,7 @@ urlpatterns = [
     path("", home_page, name="home_page"),
     path("detail/<int:pk>/", detail_page, name="detail_page"),
     path("add-announcement/", add_announcement, name="add_page"),
-    path(
-        "delete-announcement/<int:pk>/", delete_announcement, name="delete_announcement"
-    ),
+    path("delete-announcement/<int:pk>/", delete_announcement, name="delete_announcement"),
     path("edit/<int:pk>/", edit_announcement, name="edit_announcement"),
     path("login/", login_view, name="login"),
     path("register/", register_view, name="register"),
